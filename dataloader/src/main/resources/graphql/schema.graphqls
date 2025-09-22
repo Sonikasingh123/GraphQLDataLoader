@@ -1,0 +1,26 @@
+directive @Positive(message : String = "graphql.validation.Positive.message") on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+
+type Query {
+    getProductById(id: Int): Product
+    products: [Product!]!
+
+}
+
+type Mutation {
+    updateStock(productId: Int!, stock: Int! @Positive): Product
+    receiveNewShipment(productId: Int! , quantity: Int! @Positive): Product
+
+}
+type Product {
+    id: ID!
+    name: String!
+    price: Price!
+    category: String
+    stock: Int!
+
+}
+type Price {
+    priceid: ID!
+    bid: Float!
+    ask: Float!
+}
