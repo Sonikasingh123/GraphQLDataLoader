@@ -14,6 +14,9 @@ DataLoader: Batch load multiple products efficiently
 
 Requirements:
 Query: product(id: String!): Product
+
 Mutation: updateStock(id: String!, quantity: Int!): Product
+
 Use DataLoader to prevent N+1 queries when loading multiple products
+
 Validate: quantity must be non-negative, product must exist
